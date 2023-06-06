@@ -1,0 +1,8 @@
+services:
+  angular:
+    working_dir: /app
+    build:
+      context: ../../builds/angular
+    command: ['bash']
+    volumes:
+      - ../../src:/app

@@ -1,0 +1,31 @@
+services:
+  auth-service:
+    working_dir: /app
+    build:
+      context: ../../builds/nestjs
+    environment:
+      PORT: 3005
+    ports:
+      - 3000:3005
+    command: ['npm', 'start']
+    volumes:
+      - ../../src/auth-service:/app
+  user-pannel:  
+    working_dir: /app
+    build:
+      context: ../../builds/angular
+    ports:
+      - 4200:4200
+    command: ['npm', 'start']
+    volumes:
+      - ../../src/users-pannel:/app 
+    
+  # admin-pannel:
+  #   build:
+  #     context: ../../builds/react
+  # invoice-service:
+  #   build:
+  #     context: ../../builds/nestjs
+  # mongodb:
+  #   build:
+  #     context: ../../builds/mongo
